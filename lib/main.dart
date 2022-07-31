@@ -26,12 +26,28 @@ class MyHomePage extends StatelessWidget {
           title: const Text('Expenses Application'),
         ),
         body: Column(
-          mainAxisAlignment: MainAxisAlignment.spaceAround,
           crossAxisAlignment: CrossAxisAlignment.stretch,
           children: <Widget>[
             Container(
               child: Card(
                 child: Text("charts"),
+              ),
+            ),
+            Card(
+              child: Container(
+                padding: EdgeInsets.all(10),
+                child: Column(crossAxisAlignment: CrossAxisAlignment.end, children: [
+                  TextField(decoration: InputDecoration(labelText: 'Title')),
+                  TextField(
+                    decoration: InputDecoration(labelText: 'Amount'),
+                  ),
+                  OutlinedButton(
+                      onPressed: () {},
+                      child: Text(
+                        'Add Transaction',
+                        style: TextStyle(color: Colors.purple),
+                      ))
+                ]),
               ),
             ),
             Column(
