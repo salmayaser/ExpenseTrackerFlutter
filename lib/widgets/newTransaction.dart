@@ -3,6 +3,9 @@ import 'package:flutter/material.dart';
 class NewTransaction extends StatelessWidget {
   final titleCtr = TextEditingController();
   final amountCtr = TextEditingController();
+  final Function addNewTransaction;
+
+  NewTransaction(this.addNewTransaction);
 
   Widget build(BuildContext ctx) {
     return Card(
@@ -19,8 +22,7 @@ class NewTransaction extends StatelessWidget {
           ),
           OutlinedButton(
               onPressed: () {
-                print(titleCtr.text);
-                print(amountCtr.text);
+                addNewTransaction(titleCtr.text, double.parse(amountCtr.text));
               },
               child: Text(
                 'Add Transaction',
