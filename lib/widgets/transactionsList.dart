@@ -18,8 +18,8 @@ class TransactionsList extends StatelessWidget {
                 margin: EdgeInsets.symmetric(vertical: 10, horizontal: 20),
                 padding: EdgeInsets.symmetric(vertical: 10, horizontal: 20),
                 child: Text('\$ ${trans.amount.toStringAsFixed(2)}',
-                    style: TextStyle(color: Colors.purple, fontWeight: FontWeight.bold, fontSize: 20)),
-                decoration: BoxDecoration(border: Border.all(width: 2, color: Colors.purple)),
+                    style: TextStyle(color: Theme.of(ctx).primaryColor, fontWeight: FontWeight.bold, fontSize: 20)),
+                decoration: BoxDecoration(border: Border.all(width: 2, color: Theme.of(ctx).primaryColor)),
               ),
               Container(
                 padding: EdgeInsets.symmetric(vertical: 10, horizontal: 0),
@@ -27,7 +27,7 @@ class TransactionsList extends StatelessWidget {
                 child: Column(mainAxisAlignment: MainAxisAlignment.spaceBetween, crossAxisAlignment: CrossAxisAlignment.start, children: [
                   Text(
                     trans.title,
-                    style: TextStyle(color: Colors.purple, fontWeight: FontWeight.bold, fontSize: 18),
+                    style: TextStyle(color: Theme.of(ctx).primaryColor, fontWeight: FontWeight.bold, fontSize: 18),
                   ),
                   Text(
                     DateFormat().add_yMMMd().format(trans.date),
