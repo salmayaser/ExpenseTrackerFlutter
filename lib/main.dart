@@ -16,8 +16,9 @@ class MyApp extends StatelessWidget {
       home: MyHomePage(),
       title: "FLUTTER APP",
       theme: ThemeData(
-        primarySwatch: Colors.pink,
-      ),
+          primarySwatch: Colors.pink,
+          fontFamily: 'Quicksand',
+          appBarTheme: AppBarTheme(titleTextStyle: TextStyle(fontWeight: FontWeight.bold, fontSize: 20))),
     );
   }
 }
