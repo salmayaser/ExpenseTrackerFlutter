@@ -1,3 +1,4 @@
+import 'package:expense/widgets/chart.dart';
 import 'package:expense/widgets/newTransaction.dart';
 import './widgets/transactionsList.dart';
 
@@ -36,6 +37,12 @@ class _MyHomePageState extends State {
     Transaction(id: 't2', title: 'New Mobile', amount: 40, date: DateTime.now())
   ];
 
+  List<Transaction> get recentTransactions {
+    return transactions.where((element) {
+      return element.date.isAfter(DateTime.now().subtract(Duration(days: 7)));
+    }).toList();
+  }
+
   @override
   Widget build(BuildContext ctx) {
     return Scaffold(
@@ -54,11 +61,9 @@ class _MyHomePageState extends State {
           crossAxisAlignment: CrossAxisAlignment.stretch,
           children: <Widget>[
             Container(
-              child: Card(
-                child: Text("charts"),
-              ),
+              child: Chart(recentTransactions),
             ),
-            TransactionsList(transactions)
+            TransactionsList(transactions),
           ],
         ),
       ),
