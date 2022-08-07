@@ -83,8 +83,8 @@ class _MyHomePageState extends State {
         });
   }
 
-  _addNewTransaction(String title, double amount) {
-    final newTrans = Transaction(id: 't${transactions.length}', title: title, amount: amount, date: DateTime.now());
+  _addNewTransaction(String title, double amount, DateTime date) {
+    final newTrans = Transaction(id: 't${transactions.length}', title: title, amount: amount, date: date);
     setState(() {
       transactions.add(newTrans);
     });
