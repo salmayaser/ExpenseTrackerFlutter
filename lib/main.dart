@@ -1,3 +1,5 @@
+import 'dart:ffi';
+
 import 'package:expense/widgets/chart.dart';
 import 'package:expense/widgets/newTransaction.dart';
 import './widgets/transactionsList.dart';
@@ -63,7 +65,7 @@ class _MyHomePageState extends State {
             Container(
               child: Chart(recentTransactions),
             ),
-            TransactionsList(transactions),
+            TransactionsList(transactions, _deleteTransaction),
           ],
         ),
       ),
@@ -88,5 +90,14 @@ class _MyHomePageState extends State {
     setState(() {
       transactions.add(newTrans);
     });
+  }
+
+  void _deleteTransaction(String id) {
+    setState(() {
+      transactions.removeWhere((element) {
+        return element.id == id;
+      });
+    });
+    print(transactions);
   }
 }
